@@ -1,0 +1,234 @@
+% template presente
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,     
+}
+\usepackage{graphicx}
+\graphicspath{{resources/}{../resources/}{../../resources/}{../../../resources/}{../../../../resources/}}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{colortbl}
+\usepackage{hyperref} 
+\usepackage{fancyhdr} 
+\usepackage{titlesec}
+\geometry{margin=2.5cm}
+% ===== Variabile per il titolo del documento =====
+\newcommand{\documenttitle}{Verbale Riunione Numero 2}
+
+
+\setlength{\parindent}{0pt}
+\setstretch{1.2}
+
+% ===== Stile intestazione =====
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gray}{\documenttitle - BitByBit}}
+\fancyfoot[C]{\thepage}
+
+% ===== Formattazione sezioni =====
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection.}{0.5em}{}
+
+\begin{document}
+
+% ======= HEADER UNIVERSITÀ E GRUPPO CENTRATI VERTICALMENTE =======
+\vspace*{\fill} % --- Spinge verso il basso l'inizio del contenuto
+
+\begin{center}
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{logoUni.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \raggedright
+        {\color{red}\LARGE \textbf{Università degli Studi di Padova}}\\[0.3cm]
+        {\large
+        Laurea: Informatica\\
+        Corso: Ingegneria del Software\\
+        Anno Accademico: 2025/26
+        }
+    \end{minipage}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{logo.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \raggedright
+        {\LARGE \textbf{Gruppo 17}}\\[0.3cm]
+        {\large
+        Nome: BitByBit\\
+        Email: swe.bitbybit@gmail.com
+        }
+    \end{minipage}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{center}
+    {\LARGE \textbf{\documenttitle}}
+\end{center}
+
+\vspace*{\fill} % --- Spinge verso l’alto la fine del contenuto, centrando tutto il blocco
+
+\clearpage
+% ======= INFO GENERALI =======
+\section*{Informazioni Generali}
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tcolorbox}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Redattore:} & Visentin Giovanni \\
+\textbf{Verificatore:} & Parolin Dennis \\
+\textbf{Data:} & 17 Novembre 2025 \\
+\textbf{Durata:} & 1h 30 min \\
+\textbf{Luogo:} & Padova, Conference room \\
+\end{tabularx}
+\end{tcolorbox}
+
+\vspace{0.4cm}
+\textbf{Partecipanti:}
+\begin{itemize}
+    \item Manisi Riccardo
+    \item Parolin Dennis
+    \item Scaggiante Gabriele
+    \item Sanguin Marco
+    \item Visentin Giovanni
+    \item Fracasso Ferdinando
+\end{itemize}
+
+\textbf{Assenti:}
+\begin{itemize}
+    \item (nessuno)
+\end{itemize}
+
+\clearpage
+
+\vspace{0.5cm}
+
+\vspace{0.8cm}
+
+% ======= INDICE SU PAGINA DEDICATA =======
+\clearpage
+\tableofcontents
+\thispagestyle{empty} % senza numero di pagina per l'indice
+\clearpage
+
+% ---------- ORDINE DEL GIORNO ----------
+\section{Ordine del Giorno}
+\begin{itemize}
+    \item Scelta e discussione funzionalità per l'applicazione
+    \item Preparazione domande per meeting di domani
+    \item Discussione ruoli e ripartizione ore
+\end{itemize}
+
+% ---------- DISCUSSIONI ----------
+\section{Discussioni}
+Durante la riunione abbiamo parlato principalmente delle funzionalità che avremmo voluto implementare all'interno dell'applicazione "L'app che Protegge e Trasforma".
+Per trovare un accordo tra tutti i componenti del gruppo abbiamo sottolineato tutte le proposte dell'azienda in rosso (non interessanti/non di prima importanza), in giallo (da chiarire/non di prima importanza) e verde (interessanti/utili).\\
+Alcune delle funzionalità che il gruppo ha ritenuto migliori e più interessanti per un'applicazione sono:
+\begin{itemize}
+    \item La Guida al Coraggio: "Posso Denunciare? Che Aiuti ho?" - Sezione informativa con banca dati geo-localizzata di centri antiviolenza, numeri di emergenza e procedure legali;
+    \item Analisi pattern di utilizzo dell'app - Monitoraggio di comportamenti anomali come tentativi di disinstallazione forzata o accessi da luoghi insoliti;
+    \item Attivazione alert tramite temporizzatori di sicurezza - Timer preimpostati dall'utente per controlli automatici;
+    \item Funzionalità di "Check-in" di sicurezza - Timer periodico che invia alert automatico se l'utente non conferma la propria sicurezza;
+    \item Sistema di notifica discreto e personalizzabile - Alert configurabili per contatti di emergenza;
+    \item Attivazione alert tramite gesti specifici sullo schermo - Comandi touch discreti per situazioni di emergenza;
+    \item Interfaccia per ricerca servizi di supporto geo-localizzati - Strumento intuitivo per trovare aiuto nelle vicinanze;
+    \item Integrazione con servizi di chiamata e messaggistica per emergenze - Connessione diretta ai servizi di soccorso;
+    \item Messaggi di aiuto rapidi e discreti preimpostati - Template pronti per comunicazioni di emergenza;
+    \item Aggiornamento costante banca dati risorse - Sistema di verifica e validazione periodica delle informazioni;
+    \item Diario criptato - Registrazione sicura di eventi e pensieri con possibilità di allegare foto o audio protetti;
+    \item Strumenti per pianificazione percorsi sicuri - Mappe interattive con rifugi e punti di interesse per emergenze;
+    \item Quiz e test di autovalutazione - Strumenti per rafforzare consapevolezza con feedback personalizzati.
+\end{itemize}
+Oltre alle funzionalità, il gruppo ha pensato e raccolto alcune domande da porre all'azienda Miriade.\\
+Inoltre ci siamo anche concentrati sulla questione dei ruoli e della assegnazione delle ore, visti i dubbi di alcuni dei membri del gruppo.
+
+% ---------- DECISIONI ----------
+\section{Decisioni}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black} 
+\begin{tabular}{|p{0.73\textwidth}|c|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Descrizione decisione} & \textbf{Codice decisione} \\
+\hline
+\rowcolor{white}
+Diminuzione ore produttive attese per le prime 2 settimane & VI RTB 2.1 \\
+\hline
+\rowcolor{gray!20}
+Creazione di un insieme di funzionalità base da proporre alla'zienda Miriade &  VI RTB 2.2 \\
+\hline
+\rowcolor{white}
+Preparazione di altre domande generiche da fare all'azienda Miriade & VI RTB 2.3 \\
+\hline
+\end{tabular}
+\end{center}
+
+% ---------- TO DO ----------
+\section{To Do}
+Dalle discussioni e decisioni intraprese, sono emerse le seguenti attività:
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black} 
+\begin{tabular}{|p{0.52\textwidth}|c|c|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Task} & \textbf{Codice decisione} & \textbf{N°issue GitHub} \\
+\hline
+\rowcolor{white}
+Elaborare presentazione funzionalità per proponente & VI RTB 2.2 & \href{https://github.com/SWE-BitByBit/SWE-project/issues/81}{\textbf{issue 81}} \\
+\hline
+\rowcolor{gray!20}
+Preparare documento domande generiche e gestione del progetto per il meeting con Miriade & VI RTB 2.3 & \href{https://github.com/SWE-BitByBit/SWE-project/issues/80}{\textbf{issue 80}} \\
+\hline
+\end{tabular}
+\end{center}
+
+% ---------- REDAZIONE E REVISIONE ----------
+\clearpage
+\section{Redazione e revisioni del documento}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black}
+\begin{tabular}{|c|p{0.11\linewidth}|p{0.21\linewidth}|p{0.23\linewidth}|p{0.21\linewidth}|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
+\hline
+\rowcolor{white}
+0.2.1 & 25-11-17 & Dennis Parolin & Migliorate le frasi nella sezione Decisioni e To Do. Sistemato il versionamento e l'ordine di presentazione delle righe nelle tabelle  & Riccardo Manisi \\
+\hline
+\rowcolor{gray!20}
+0.2.0 & 25-11-17 & Visentin Giovanni & Modifica e aggiunta informazioni & Parolin Dennis\\
+\hline
+\rowcolor{white}
+0.1.0 & 25-11-17 & Visentin Giovanni & Redazione e creazione file & Parolin Dennis \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
