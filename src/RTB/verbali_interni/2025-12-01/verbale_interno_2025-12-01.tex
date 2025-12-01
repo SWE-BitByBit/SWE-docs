@@ -23,7 +23,7 @@
 \usepackage{titlesec}
 \geometry{margin=2.5cm}
 % ===== Variabile per il titolo del documento =====
-\newcommand{\documenttitle}{Verbale Riunione Numero X}
+\newcommand{\documenttitle}{Verbale interno Riunione numero 3 - RTB}
 
 
 \setlength{\parindent}{0pt}
@@ -94,13 +94,12 @@
 
 \begin{tcolorbox}
 \begin{tabularx}{\textwidth}{@{}l X@{}}
-\textbf{Redattore:} & XXXX \\
-\textbf{Verificatore:} & XXXX \\
-\textbf{Responsabile:} & XXXX \\
-\textbf{Amministratore:} & XXXX \\
-\textbf{Data:} & 23 ottobre 2025 \\
-\textbf{Durata:} & 1h 45m \\
-\textbf{Luogo:} & Padova, Aula 2 \\
+\textbf{Redattore:} & Riccardo Manisi \\
+\textbf{Verificatore:} & Marco Sanguin \\
+\textbf{Responsabile:} & Riccardo Manisi \\
+\textbf{Data:} & 01 dicembre 2025 \\
+\textbf{Durata:} & 1h 30m \\
+\textbf{Luogo:} & Discord \\
 \end{tabularx}
 \end{tcolorbox}
 
@@ -108,7 +107,7 @@
 \textbf{Partecipanti:}
 \begin{itemize}
     \item Manisi Riccardo
-    \item Parolin Dennis
+    \item Parolin Dennisx
     \item Scaggiante Gabriele
     \item Sanguin Marco
     \item Visentin Giovanni
@@ -139,16 +138,10 @@
 \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
 \hline
 \rowcolor{white}
- &  &  &  &  \\
+0.1.0 & 2025-12-01 & Riccardo Manisi & Redazione del verbale & Marco Sanguin \\
 \hline
 \rowcolor{gray!20}
  &  &  &  & \\
-\hline
-\rowcolor{white}
- &  &  &  & \\
-\hline
-\rowcolor{gray!20}
- &  &  &  &  \\
 \hline
 \end{tabular}
 \end{center}
@@ -162,12 +155,27 @@
 % ---------- ORDINE DEL GIORNO ----------
 \section{Ordine del Giorno}
 \begin{itemize}
-    \item %modifica
+    \item \textbf{Sprint Retrospective\ap{G}} dello \textbf{Sprint\ap{G}} n°1 del periodo dal 2025-11-19 al 2025-12-03
+    \item \textbf{Sprint planning\ap{G}} per lo \textbf{Sprint\ap{G}} relativo al periodo dal 2025-12-04 al 2025-12-18
 \end{itemize}
 
 % ---------- DISCUSSIONI ----------
 \section{Discussioni}
-%modifica
+\begin{itemize}
+    \item Rispetto allo \textbf{Sprint Retrospective\ap{G}} i membri del gruppo hanno esposto con il coordinamento del Responsabile di progetto le attività svolte durante il presente periodo di \textbf{Sprint\ap{G}}. Sono stati presentati e visualizzati le bozze dei documenti AdR e NdP, implementate rispettivamente dai membri Dennis Parolin e Riccardo Manisi.\\Dalla revisione è emerso che le attività che si erano prefissate non sono state compiute completamente andando a influire sul ciclo di lavoro del gruppo.
+    \item Riguardo allo \textbf{Sprint planning\ap{G}} si è decisa la divisione dei ruoli tra i vari membri del gruppo che hanno esposto una preferenza rigurado ai compiti che preferiscono eseguire, quelli che non hanno esposto preferenze gli saranno assegnate delle attività dal Responsabile in base alla necessità.
+    \item Si è ragionato sulla grandezza delle issue che devono essere prodotte al momento dello \textbf{Sprint planning\ap{G}}, queste possono essere generali e poi nel caso debbano essere scomposte in altre attività il membro del team che ce l'ha in carico dovrà creare delle \textbf{sub-issue\ap{G}}.
+    \item Durante la riunione Riccardo Manisi ha illustrato il procedimento inserito nel Wow per le pull request, che da adesso in poi il gruppo riconosce come metodo ufficiale per eseguire l'attività di controllo della configurazione. 
+\end{itemize}
+Si riporta qui di seguito la spartizione dei ruoli per ogni membro del gruppo stabilita durante le discussioni durante l'incontro:
+\begin{center}
+    \textbf{Amministratore\ap{G}} $\rightarrow$ Ferdinando Fracasso, Riccardo Manisi, Marco Sanguin, Gabriele Scaggiante\\
+    \textbf{Responsabile\ap{G}} $\rightarrow$ Riccardo Manisi, Dennis Parolin\\
+    \textbf{Analista\ap{G}} $\rightarrow$ Ferdinando Fracasso, Riccardo Manisi, Marco Sanguin, Gabriele Scaggiante, Dennis Parolin, Giovanni Visentin\\
+    \textbf{Verificatore\ap{G}} $\rightarrow$ Marco Sanguin, Giovanni Visentin
+\end{center}
+
+
 
 % ---------- DECISIONI ----------
 \section{Decisioni}
@@ -181,13 +189,19 @@
 \textbf{Descrizione decisione} & \textbf{Codice decisione} \\
 \hline
 \rowcolor{white}
-Inserire descrizione & VI C 1.1 \\
+Suddivisione dei ruoli per il secondo Sprint & VI RTB 3.1 \\
 \hline
 \rowcolor{gray!20}
-Inserire descrizione &  VI C 1.2 \\
+Inizio redazione del documento AdR &  VI RTB 3.2 \\
 \hline
 \rowcolor{white}
-Inserire descrizione &  VI C 1.3\\
+Studio delle metriche per la qualità da inserire nel cruscotto &  VE RTB 3.3\\
+\hline
+\rowcolor{gray!20}
+Bozza per gli scenari da insierire nel documento AdR &  VI RTB 3.4 \\
+\hline
+\rowcolor{white}
+Sistemazione del \textbf{repository\ap{G}} per la visualizzazione corretta dell'ordine dei documenti &  VE RTB 3.5\\
 \hline
 \end{tabular}
 \end{center}
@@ -206,13 +220,19 @@ Dalle discussioni e decisioni intraprese, sono emerse le seguenti attività:
 \textbf{Task} & \textbf{Codice decisione} & \textbf{N°issue GitHub} \\
 \hline
 \rowcolor{white}
-Esempio Task 1 & VI C 1.1 & \href{https://github.com/<repo>/issues/1}{\textbf{issue}} \\
+Inizio redazione del documento AdR & VI RTB 3.2 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/90}{\textbf{\#90}} \\
 \hline
 \rowcolor{gray!20}
-Esempio Task 2 & VI C 1.2 & \href{https://github.com/<repo>/issues/2}{\textbf{issue}} \\
+Studio delle metriche di qualità & VE RTB 3.3 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/91}{\textbf{\#91}} \\
 \hline
 \rowcolor{white}
-Esempio Task 3 & VI C 1.3 & \href{https://github.com/<repo>/issues/3}{\textbf{issue}} \\
+Scrivere bozza per gli scenari da insierire nel documento AdR & VI RTB 3.4 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/92}{\textbf{\#92}} \\
+\hline
+\rowcolor{gray!20}
+Correzione sito per la visualizzazione dei contenuti & VE RTB 3.5 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/93}{\textbf{\#93}} \\
+\hline
+\rowcolor{white}
+Sistemare cartelle della \textbf{repository\ap{G}} per la corretta visualizzazione & VI RTB 3.5 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/94}{\textbf{\#94}} \\
 \hline
 \end{tabular}
 \end{center}
