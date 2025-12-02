@@ -107,10 +107,10 @@
 \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
 \hline
 \rowcolor{white}
-0.1.0 & 2025-12-01 & Riccardo Manisi & Creazione del documento. Aggiunto processo di documentazione e bozza per le sezioni successive. & Dennis Parolin \\
+0.1.1 & 2025-12-02 & Riccardo Manisi & Sistemati errori lessicali & Marco Sanguin\\
 \hline
 \rowcolor{gray!20}
- &  &  &  & \\
+0.1.0 & 2025-12-01 & Riccardo Manisi & Creazione del documento. Aggiunto processo di documentazione e bozza per le sezioni successive. & Marco Sanguin \\
 \hline
 \end{tabular}
 \end{center}
@@ -208,7 +208,7 @@ Ogni documento, indipendentemente dalla sua categoria, deve essere redatto in co
 Ogni documento, prima di essere integrato nella versione stabile del \textbf{repository\ap{G}}, deve attraversare un ciclo strutturato di produzione che garantisce la qualità, la verificabilità e la tracciabilità delle modifiche. Le attività descritte in questa sezione definiscono il flusso operativo seguito dal gruppo per l’elaborazione, la revisione e la pubblicazione dei prodotti documentali.
 
 \paragraph{Creazione delle issue GitHub}
-Ogni modifica documentale, compresa anche la creazione di un documento, inizia con l’apertura di una issue su GitHub per permettere la tracciabilità nella board del \textbf{Project GitHub\ap{G}}. Ogni commit deve essere atomico, cioè riferirsi ad un’unica azione in quanto migliorano la revisione revisione, il recupero e la collaborazione.
+Ogni modifica documentale, compresa anche la creazione di un documento, inizia con l’apertura di una issue su GitHub per permettere la tracciabilità nella board del \textbf{Project GitHub\ap{G}}. Ogni commit deve essere atomico, cioè riferirsi ad un’unica azione in quanto migliorano la revisione, il recupero e la collaborazione.
 
 \paragraph{Assegnazione della issue} 
 Nessuna issue può essere avviata senza una chiara assegnazione. L’assegnazione viene effettuata dal \textbf{responsabile\ap{G}}, che determina chi, nel gruppo, è incaricato dell’esecuzione dell’attività. Questo passaggio garantisce che ogni modifica sia riconducibile a un autore e che la responsabilità operativa sia chiaramente definita.
@@ -229,7 +229,7 @@ Il frontespizio possiede i seguenti elementi:
 \end{itemize}
 
 \subsubsection*{Storico del documento}
-Nell'ultima pagina deve essere presente uno storico delle modifiche apportate al documento.Le entry della tabella devono essere in ordine cronologico in modo che la prima entry faccia riferimento alla modifica più recente. Una entry è composta da:
+Nell'ultima pagina deve essere presente uno storico delle modifiche apportate al documento. Le entry della tabella devono essere in ordine cronologico in modo che la prima entry faccia riferimento alla modifica più recente. Una entry è composta da:
 \begin{enumerate}
     \item \textbf{versione};
     \item \textbf{data della modifica};
@@ -357,7 +357,7 @@ Una volta completate le modifiche nel branch di \texttt{feature}, il membro inca
 Le modifiche richieste devono essere applicate dall’autore originario della \textbf{pull request\ap{G}}, che procede aggiornando il branch \texttt{develop} fino alla completa risoluzione.
 I verificatori sono tenuti a controllare che i documenti di ciclo di vita del progetto comprendano gli elementi di struttura elencati di seguito nell' ordine in cui si presentano.
 
-\paragraph{Approvazione e pull request} Una volta ottenuta l’approvazione del verificatore, la \textbf{pull request\ap{G}} viene sottoposta al \textbf{responsabile\ap{G}}, che effettua un ultimo controllo formale. Solo il \textbf{responsabile\ap{G}} è autorizzato a procedere con il merge della PR nel branch \texttt{main}. Il merge rappresenta l’integrazione definitiva del documento nella versione stabile del progetto.
+\paragraph{Approvazione e pull request} Una volta ottenuta l’approvazione del verificatore, la \textbf{pull request\ap{G}} viene sottoposta al \textbf{responsabile\ap{G}}, che effettua un ultima revisione formale. Solo il \textbf{responsabile\ap{G}} è autorizzato a procedere con il merge della PR nel branch \texttt{develop}. Il merge rappresenta l’integrazione definitiva del documento nella versione stabile del progetto.
 
 \paragraph{Pubblicazione} Con la conclusione del merge, il documento aggiornato diventa parte integrante della \textbf{baseline\ap{G}} di progetto. Il branch \texttt{main} costituisce, infatti, il riferimento ufficiale per la versione stabile e coerente dei documenti.
 
