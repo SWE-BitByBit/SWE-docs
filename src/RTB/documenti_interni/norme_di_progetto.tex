@@ -363,6 +363,89 @@ I verificatori sono tenuti a controllare che i documenti di ciclo di vita del pr
 
 % ==== PROCESSO DI GESTIONE DELLA CONFIGURAZIONE ====
 \subsection{Processo di gestione della configurazione}
+Il processo di gestione della configurazione ha l’obiettivo di applicare procedure per garantire il controllo sistematico degli artefatti prodotti dal gruppo \textit{BitByBit} durante l’intero ciclo di vita del software. \\ Esso permette di tracciare le modifiche apportate agli elementi di configurazione, garantendo che ogni componente venga rilasciato in modo coerente e dopo le opportune verifiche. Inoltre, consente di registrare, classificare e monitorare le richieste di modifica, assicurando che i prodotti di lavoro risultino completi, coerenti e corretti. Infine, supporta una gestione ordinata degli elementi approvati, curandone l’archiviazione, la conservazione e la distribuzione.
+
+\subsubsection{Strumenti a supporto}
+Per le attività previste, il gruppo BitByBit utilizza gli stumenti elencati di seguito.
+\begin{itemize}
+    \item \textbf{GitHub}: piattaforma per il versionamento, la gestione dei repository, delle \textbf{issue\ap{G}}, delle \textbf{pull request\ap{G}} e dei flussi di lavoro collaborativi mediante GitHub Projects e Teams. È inoltre il punto ufficiale di archiviazione degli artefatti approvati.
+    \item \textbf{GitHub Actions}: utilizzate per automatizzare la compilazione dei documenti in \LaTeX{} e garantire la validazione continua del repository.
+    \item \textbf{Branch protection rules}: utilizzate per impedire modifiche non autorizzate sul branch principale e garantire che ogni integrazione avvenga secondo le regole di verifica previste dal gruppo.
+\end{itemize}
+
+\subsubsection{Implementazione di processo}
+Le attività principali del processo di gestione della configurazione sono:
+\begin{itemize}
+    \item \textbf{identificazione della configurazione}, viene definito uno schema uniforme di versionamento e naming, per identificare ogni componente del sistema;
+    \item \textbf{controllo della configurazione}, metodologie per stabilire l'identificazione, l'approvazione o rifiuto, la verifica e l'eventuale rilascio delle change request; 
+    \item \textbf{registro di stato}, per predisporre registri di gestione e report di stato che mostrino lo stato e la cronologia degli elementi software;
+    \item \textbf{valutazione della configurazione}, come determinare la completezza funzionale e fisica delle componenti software con i loro requisiti.
+\end{itemize}
+
+\subsubsection{Identificazione della configurazione}
+Per il versionamento viene adottato il \textbf{Semantic Versioning (SemVer\ap{G})}.  
+Ogni documento riporta una versione nel formato:
+\begin{center}
+\texttt{X.Y.Z}
+\end{center}
+dove:
+\begin{itemize}
+    \item \textbf{X (major)}: incrementata solo alla pubblicazione ufficiale, corrispondente al merge sul branch \texttt{main};
+    \item \textbf{Y (minor)}: incrementata quando vengono effettuare modifiche sostanziali alla struttura o al contenuto del documento;
+    \item \textbf{Z (patch)}: incrementata con correzioni minori, refusi o chiarimenti senza impatto tecnico.
+\end{itemize}
+Ogni documento di ciclo di vita presenta uno storico delle modifiche con associata la precisa versione.
+Questa scelta permette una chiara tracciabilità chiara, prevedibilità delle modifiche ed evoluzione controllata degli artefatti documentali.
+
+\paragraph{Aggiunta dei tag}
+Al termine del processo di revisione, quando una \textbf{pull request\ap{G}} viene approvata dai verificatori e successivamente chiusa dal \textbf{responsabile\ap{G}}, viene generato un commit di merge che rappresenta la versione consolidata delle modifiche introdotte nel branch \texttt{develop}.\\Poiché questo commit costituisce il punto di riferimento ufficiale per la versione del documento o dell’artefatto modificato, il responsabile – oppure, se previsto, una GitHub Action – deve applicare un tag che identifichi formalmente la nuova versione.
+
+Il formato per il tag sul branch \texttt{develop} è il seguente:
+\begin{center}
+    \texttt{sigla\_del\_documento-X.Y.Z}
+\end{center}
+dove \texttt{sigla\_del\_documento} fa riferimento alle convenzioni di scrittura presenti nel processo di documentazione (vedi sezione 3.1). Invece, \texttt{X.Y.Z} indica la versione con cui il documento entra ufficialmente nel repository, dopo la verifica e la validazione eseguite dalle figure del team adibite a questi compiti.
+Dopo il merge da develop a main si applica il tag della baseline alla commit risultante rispettando il formato seguente:
+\begin{center}
+    \texttt{sigla\_della\_baseline-X.Y.Z}
+\end{center}
+
+\subsubsection{Controllo della configurazione}
+ Il controllo della configurazione definisce le modalità con cui il gruppo gestisce, valuta e approva tutte le modifiche agli elementi configurabili del progetto.\\ L’intero ciclo di lavoro è organizzato secondo la pratica del feature branching, in cui per ogni modifica deve essere aperto un branch di \texttt{feature} seguendo la nomenclatura esposta in sezione (da aggiungere).
+
+\paragraph{Gestione issue e pianificazione del lavoro}
+Ogni modifica nasce dall’apertura di una \textbf{issue GitHub\ap{G}}, che costituisce il punto di riferimento per la tracciabilità dell’attività.\\ Al momento della creazione, la \textbf{issue\ap{G}} deve essere dotata di un titolo descrittivo e di una spiegazione chiara dell’obiettivo. Il responsabile assegna inoltre priorità, milestone, iterazione (che corrisponde allo sprint in cui l’attività deve essere completata) e l’assegnatario, selezionato in base al ruolo che il membro ricopre in quel momento. Label aggiuntive consentono una categorizzazione accurata del lavoro.\\ La pianificazione complessiva è supportata dalle \textbf{GitHub Project Board\ap{G}}, che permettono di consultare \textbf{product backlog\ap{G}} e \textbf{sprint backlog\ap{G}} tramite viste personalizzate, semplificando la gestione dei carichi di lavoro e l’avanzamento delle attività.
+
+\paragraph{Creazione della pull request}
+Una volta completata l’attività descritta nella \textbf{issue GitHub\ap{G}}, il membro incaricato apre una \textbf{pull request\ap{G}} dal branch di feature al \texttt{branch develop}.\\ Ogni \textbf{pull request\ap{G}} deve utilizzare il template comune del gruppo, che contiene le sezioni necessarie per descrivere contesto, modifiche introdotte, issue collegate e controlli effettuati. La descrzione del templatepresente nel file \texttt{pull\_request\_template.md}, deve essere compilato e adattato ogni volta, così da velocizzare il lavoro di revisione e rendere uniformi tutte le richieste. Il membro deve indicare tramite il campo \texttt{Reviewers} il singolo membro incaricato del compito di verificare quella modifica.
+
+\paragraph{Verifica e revisone della pull request}
+All'apertura della \textbf{pull request\ap{G}} viene richiesta automaticamente la verifica ai membri del team verificatori:
+\begin{itemize}
+    \item se la verifica produce esito positivo, la \textbf{pull request\ap{G}} viene approvata dal verificatore incaricato;
+    \item se sono presenti dei problemi o miglioramenti da applicare, il verificatore richiede delle modifiche, tramite l'opzione di \textbf{GitHub\ap{G}} \texttt{request changes}, aggiungendo un commento di quello che è il problema trovato e di una possibile soluzione se è presente. Successivamente la persona che ha aperto la \textbf{pull request\ap{G}} si impegna a eseguire le correzioni e a notificare il completamento dell'azione per avere una verifica il prima possibile.
+\end{itemize}
+
+\paragraph{Integrazione nella baseline}
+Quando la \textbf{pull request\ap{G}} viene approvata del \textbf{verificatore\ap{G}}, il responsabile esegue la revisione. Si impegan ad eseguire il merge nel branch \texttt{develop}. A questo punto, la modifica entra ufficialmente in \textbf{baseline\ap{G}} e diventa parte del progetto.
+
+\subsubsection{Registro dello stato della configurazione}
+Lo stato aggiornato degli elementi di configurazione è tracciato tramite:
+\begin{itemize}
+    \item le issue aperte, in corso e chiuse;
+    \item le milestone attive e completate;
+    \item la cronologia delle pull request;
+    \item le versioni ufficiali dei documenti pubblicate sul branch \texttt{main}.
+\end{itemize}
+GitHub Projects funge da registro organizzato delle attività, offrendo una rappresentazione visiva dello stato corrente.
+
+\subsubsection{Valutazione della configurazione}
+L'\textbf{attività di valutazione della configurazione} ha lo scopo di garantire che gli elementi software sviluppati siano completi, coerenti e conformi ai \textbf{requisiti approvati}.\\Il gruppo BitByBit assicura tale controllo attraverso un tracciamento sistematico dei requisiti, che consente di collegare ogni modifica e ogni componente alla motivazione tecnica o funzionale che la giustifica. Durante lo sviluppo, i membri si impegnano inoltre a mantenere una chiara corrispondenza tra codice e requisiti, anche tramite annotazioni e riferimenti interni.\\La valutazione viene svolta in modo continuativo, non solo nelle fasi conclusive, così da individuare rapidamente deviazioni dal design e garantire che:
+\begin{itemize}
+    \item tutti i requisiti software siano effettivamente soddisfatti;
+    \item non vengano introdotti comportamenti non richiesti;
+    \item ogni parte del sistema risulti coerente con l’architettura definita.
+\end{itemize}
 
 % ==== SEZIONE PROCESSI ORGANIZZATIVI ====
 \section{Processi organizzativi del ciclo di vita}
