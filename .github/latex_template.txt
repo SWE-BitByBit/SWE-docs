@@ -143,6 +143,7 @@
     \item Scaggiante Gabriele
     \item Sanguin Marco
     \item Visentin Giovanni
+    \item Ferdinando Fracasso
 \end{itemize}
 
 \textbf{Assenti:}
