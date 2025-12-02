@@ -1,0 +1,373 @@
+% template presente
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,     
+}
+\usepackage{graphicx}
+\graphicspath{{resources/}{../resources/}{../../resources/}{../../../resources/}{../../../../resources/}}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{colortbl}
+\usepackage{hyperref} 
+\usepackage{fancyhdr}
+\setlength{\headheight}{25pt}
+\setlength{\headsep}{1cm}
+\usepackage{titlesec}
+\geometry{margin=2.5cm}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+% ===== Variabile per il titolo del documento =====
+% ===== DA MODOFICARE =====
+\newcommand{\documenttitle}{Norme di progetto } %serve l'ultimo spazio
+
+
+\setlength{\parindent}{0pt}
+\setstretch{1.2}
+
+% ===== Stile intestazione =====
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gray}{\documenttitle - BitByBit}}
+%\fancyhead[R]{\includegraphics[height=1cm]{solo_logo.jpg}}
+\fancyfoot[C]{\thepage}
+
+% ===== Formattazione sezioni =====
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection.}{0.5em}{}
+
+\begin{document}
+
+% ======= HEADER UNIVERSITÀ E GRUPPO CENTRATI VERTICALMENTE =======
+\vspace*{\fill} % --- Spinge verso il basso l'inizio del contenuto
+
+\begin{center}
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{logoUni.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \raggedright
+        {\color{red}\LARGE \textbf{Università degli Studi di Padova}}\\[0.3cm]
+        {\large
+        Laurea: Informatica\\
+        Corso: Ingegneria del Software\\
+        Anno Accademico: 2025/26
+        }
+    \end{minipage}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{logo.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \raggedright
+        {\LARGE \textbf{Gruppo 17}}\\[0.3cm]
+        {\large
+        Nome: BitByBit\\
+        Email: swe.bitbybit@gmail.com
+        }
+    \end{minipage}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{center}
+    {\LARGE \textbf{\documenttitle}}
+\end{center}
+
+\vspace*{\fill} % --- Spinge verso l’alto la fine del contenuto, centrando tutto il blocco
+
+% ---------- REDAZIONE E REVISIONE ----------
+\clearpage
+
+\section*{Registro delle modifiche}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black}
+\begin{tabular}{|c|p{0.11\linewidth}|p{0.21\linewidth}|p{0.23\linewidth}|p{0.21\linewidth}|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
+\hline
+\rowcolor{white}
+0.1.1 & 2025-12-02 & Riccardo Manisi & Sistemati errori lessicali & Marco Sanguin\\
+\hline
+\rowcolor{gray!20}
+0.1.0 & 2025-12-01 & Riccardo Manisi & Creazione del documento. Aggiunto processo di documentazione e bozza per le sezioni successive. & Marco Sanguin \\
+\hline
+\end{tabular}
+\end{center}
+
+\clearpage
+
+% ======= INDICE SU PAGINA DEDICATA =======
+\clearpage
+\tableofcontents
+\thispagestyle{empty} % senza numero di pagina per l'indice
+\clearpage
+
+\section{Introduzione}
+\subsection{Scopo del documento}
+Il presente documento è volto a definire i processi del way of working per il gruppo BitByBit che si impegna a mantenerlo per tutta la durata del progetto.
+Per la sua redazione è stato preso come riferimento lo Standard ISO/IEC 12007:1995 che identifica 3 tipologie di processo:
+\begin{enumerate}
+    \item \textbf{processi primari:} atti alla produzione di un prodotto software;
+    \item \textbf{processi di supporto:} supportano altri processi come parte integrante e contribuiscono al successo e alla qualità del prodotto software;
+    \item \textbf{processi organizzativi:} definiscono i metodi organizzativi del gruppo, per stabilire e implementare la struttura costituita dai processi di ciclo di vita.
+\end{enumerate}
+Ogni membro del gruppo si impegna a visionare costantemente il presente documento e a rispettare rigorosamente i processi che vengono esposti di seguito, per ottenere un prodotto che sia professionale, coerente e uniforme.
+
+\subsection{Scopo del prodotto}
+L'azienda \textbf{Miriade srl} ha proposto lo sviluppo di un'applicazione mobile, denominata "L'app che Protegge e Trasforma" finalizzata alla prevenzione e al supporto delle vittime di violenze di genere. \\Il prodotto punta a stabilirsi come uno strumento intelligente e sicuro che aiuta l'utilizzatore a riconoscere segnali di pericolo e a fornire risorse per tutelarsi da atti, che siano fisici o psicologici, che potrebbero nuocere alla sua salute. L'applicazione implementa metodologie volte alla tutela delle persone che sono già vittima di violenze, ma anche per la valutazione e l'individuazione di situazioni che potrebbero sfociare in atti di violenza.
+
+\subsection{Glossario}
+I documenti prodotti nei processi di ciclo di vita sono corredati da un glossario che costituisce un riferimento condiviso. Il suo scopo è ridurre le ambiguità lessicali che possono emergere a causa dei diversi livelli di competenze tecniche tra i destinatari dei documenti. \\Poiché le Norme di Progetto, l’Analisi dei Requisiti, il Piano di Progetto e il Piano di Qualifica sono rivolti a figure eterogenee, tra cui acquirenti, fornitori, sviluppatori, gestori e utenti del prodotto software, è necessario che ogni termine potenzialmente ambiguo, tecnico o soggetto a interpretazioni multiple sia riportato in modo chiaro e univoco.\\Per favorire la reperibilità dei termini e rendere immediata la loro identificazione all’interno dei documenti, ogni voce del glossario è richiamata nel testo mediante la seguente convenzione stabilita dal gruppo BitByBit: 
+\begin{center}
+    \textbf{termine\_nel\_glosssario\ap{G}}
+\end{center}
+Il glossario è considerato parte integrante del processo di documentazione: viene aggiornato ogni volta che emergono nuovi termini rilevanti, che vengono introdotti nuovi concetti tecnici o che si rende necessario chiarire ambiguità riscontrate durante la redazione o la verifica dei documenti.
+
+\subsection{Riferimenti}
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+    \item \textbf{Capitola d'appalto C4: L'app che Protegge e Trasforma}\\
+    {\small\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C4.pdf}}
+    \item \textbf{Standard ISO/IEC 12207:1995}\\
+    {\small\url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}}
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+% ===== SEZIONE PER I PROCESSI PRIMARI ====
+\section{Processi primari}
+
+% ==== SEZIONE PROCESSI DI SUPPORTO ====
+\section{Processi di supporto}
+La presente sezione espone i seguenti processi di supporto:
+\begin{itemize}
+    \item[(a)] \textbf{documentazione;}
+    \item[(b)] \textbf{gestione della configurazione;}
+    \item[(c)] \textbf{gestione della qualità;}
+    \item[(d)] \textbf{verifica;}
+    \item[(e)] \textbf{validazione.}
+\end{itemize}
+\subsection{Documentazione}
+Il processo di documentazione ha l’obiettivo di definire le modalità, gli strumenti e le convenzioni che il gruppo adotta per la produzione, la gestione, la revisione e l’approvazione di tutti i documenti del progetto.
+
+\subsubsection{Obbiettivi}
+\begin{enumerate}
+  \item Garantire \textbf{completezza}, \textbf{chiarezza} e \textbf{coerenza} delle informazioni contenute nei documenti.
+  \item Assicurare la \textbf{tracciabilità} delle modifiche e delle versioni;
+   \item Favorire la \textbf{comprensibilità e manutenibilità} dei documenti da parte di tutti i membri del gruppo;
+   \item Fornire un \textbf{mezzo ufficiale di comunicazione} tra il gruppo, il committente e i revisori;
+   \item Rispettare la \textbf{uniformità formale e stilistica} tra i vari documenti prodotti.
+\end{enumerate}
+L’implementazione del repository dedicato alla documentazione integra tutti gli strumenti necessari alla produzione dei documenti di ciclo di vita, garantendo che ogni nuovo membro del progetto possa svolgere le attività previste senza dipendere dal proprio ambiente di lavoro locale o incorrere in limitazioni tecniche.\\È necessaria l'automazione dei processi dove è possibile, in modo da avere un sistema con pipeline per lo sviluppo che aiuti il membro del gruppo nei suoi compiti.
+
+\subsubsection{Strumenti a supporto}
+Per sostenere il processo di documentazione sono utilizzati i seguenti strumenti:
+\begin{itemize}
+  \item \textbf{\LaTeX}, per la stesura di documenti il gruppo ha scelto \LaTeX, linguaggio di markup che permette di avere il controllo di tutte le parti di un documento, può essere eseguito nel repository senza la necessità di un editor di testo; 
+  \item \textbf{overleaf}, piattaforma online utilizzata in fase iniziale per l'apprendimento della sintassi e i comandi di \LaTeX;
+  \item \textbf{Google Sheets}: utilizzato per la redazione di pianificazioni, tracciamento di requisiti preliminari, matrici decisionali e supporto alla raccolta dati;
+  \item \textbf{Google Docs}, impiegato durante riunioni o fasi preliminari per appunti condivisi e raccolta rapida di contenuti;
+  \item \textbf{Google Presentazioni}: utilizzato per la redazione e condivisione dei diari di bordo richiesti dal corso;
+  \item \textbf{GitHub}, piattaforma di versionamento distribuito e piattaforma di collaborazione utilizzata per la gestione centralizzata dei documenti, delle modifiche, dei branch e delle pull request;  
+  \item \textbf{GitHub Actions}, strumento di automazione per l'aggiunta del template comune a tutti i documenti e per la compilazione dei file \texttt{.tex} in \texttt{PDF}.
+\end{itemize}
+
+\subsubsection{Tipologie di documenti}
+\begin{itemize}
+    \item \textbf{Documenti interni}, destinati alla gestione e al coordinamento interno (verbali, norme di progetto, glossario);
+    \item \textbf{Documenti esterni}, destinati a revisori, docenti o aziende (Analisi dei Requisiti, Piano di Progetto, Piano di Qualifica);
+    \item \textbf{Verbali interni ed esterni}, registrano rispettivamente, gli incontri tra i membri del gruppo e gli incontri tra il gruppo e gli enti esterni come l'azienda proponente o i professori.
+\end{itemize}
+Ogni documento, indipendentemente dalla sua categoria, deve essere redatto in conformità alle convenzioni formali definite nelle Norme di Progetto.
+
+\subsubsection{Implementazione di processo}
+Ogni documento, prima di essere integrato nella versione stabile del \textbf{repository\ap{G}}, deve attraversare un ciclo strutturato di produzione che garantisce la qualità, la verificabilità e la tracciabilità delle modifiche. Le attività descritte in questa sezione definiscono il flusso operativo seguito dal gruppo per l’elaborazione, la revisione e la pubblicazione dei prodotti documentali.
+
+\paragraph{Creazione delle issue GitHub}
+Ogni modifica documentale, compresa anche la creazione di un documento, inizia con l’apertura di una issue su GitHub per permettere la tracciabilità nella board del \textbf{Project GitHub\ap{G}}. Ogni commit deve essere atomico, cioè riferirsi ad un’unica azione in quanto migliorano la revisione, il recupero e la collaborazione.
+
+\paragraph{Assegnazione della issue} 
+Nessuna issue può essere avviata senza una chiara assegnazione. L’assegnazione viene effettuata dal \textbf{responsabile\ap{G}}, che determina chi, nel gruppo, è incaricato dell’esecuzione dell’attività. Questo passaggio garantisce che ogni modifica sia riconducibile a un autore e che la responsabilità operativa sia chiaramente definita.
+
+\paragraph{Impostazione del documento}
+Il membro del team può ora avviare la stesura del documento all’interno del branch dedicato, il cui nome segue la nomenclatura presente nella sezione (da aggiungere). La prima attività consiste nella creazione del file sorgente, denominato secondo le convenzioni stabilite (ad esempio nel formato \texttt{nome\_documento.tex}). Una volta inserito il nuovo file nel repository remoto, il sistema provvede automaticamente ad applicare il template comune, garantendo l’integrazione delle componenti strutturali condivise.\\Spetta quindi al redattore adattare il template al contenuto specifico del documento, completandone le sezioni pertinenti e verificando che l’impostazione risultante sia conforme agli standard definiti per la documentazione del progetto. Questa attività assicura uniformità, leggibilità e coerenza stilistica dell’intera produzione documentale lungo tutto il ciclo di vita del progetto.\\Ogni membro del gruppo è quindi tenuto a verificare che i documenti prodotti rispettino un formato uniforme, verificabile e riconducibile agli standard scelti.\\ Questa attività garantisce la leggibilità, la coerenza e la mantenibilità dell’intera produzione documentale durante tutto il ciclo di vita del progetto.
+
+\subsubsection*{Intestazione}
+Ogni pagina del documento include un'intestazione che riporta il titolo dello specifico documento e il nome del gruppo.
+\subsubsection*{Frontespizio}
+Il frontespizio possiede i seguenti elementi:
+\begin{itemize}
+    \item logo dell'ateneo;
+    \item informazioni dell'ateneo;
+    \item logo del gruppo;
+    \item contatto ufficiale del gruppo;
+    \item nome del documento.
+\end{itemize}
+
+\subsubsection*{Storico del documento}
+Nell'ultima pagina deve essere presente uno storico delle modifiche apportate al documento. Le entry della tabella devono essere in ordine cronologico in modo che la prima entry faccia riferimento alla modifica più recente. Una entry è composta da:
+\begin{enumerate}
+    \item \textbf{versione};
+    \item \textbf{data della modifica};
+    \item \textbf{autore della modifica};
+    \item \textbf{verificatore}, il nome del verificatore che ha verificato quella modifica.
+\end{enumerate}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black}
+\begin{tabular}{|p{0.1\linewidth}|p{0.18\linewidth}|p{0.18\linewidth}|p{0.18\linewidth}|p{0.18\linewidth}|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
+\hline
+\rowcolor{white}
+ &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{Indice}
+Ogni documento deve presentare un indice delle sezioni e sottosezioni per una visita veloce e facilitata di specifici all'interno dello stesso documento.
+
+\subsubsection*{Struttura dei verbali}
+I verbali rappresentano i rendiconti di riunioni ufficiali interne, a cui partecipano solo i componenti del gruppo, ed esterne, a cui invece partecipano anche enti esterni al gruppo come le aziende fornitrici o i professori. Ogni verbale oltre alle sezioni precedentemente elencate deve presentare al suo interno i seguenti elementi nell'ordine in cui sono descritti:
+\begin{enumerate}
+  \item \textbf{Informazioni generali}: contiene i dati identificativi dell’incontro quali: 
+  \begin{itemize}
+      \item il redattore;
+      \item il verificatore;
+      \item il responsabile;
+      \item l'amministratore;
+      \item la data in cui si è svolto l'incontro;
+      \item la durata;
+      \item l'elenco dei partecipanti e degli assenti.
+  \end{itemize}
+    Queste informazioni sono volte a dare un contesto formale alla riunione.
+  \item \textbf{Ordine del giorno}: riassume i punti principali che si intendono discutere durante l’incontro, predisposti in anticipo dal responsabile o dall’amministratore. Questa sezione funge da guida per la conduzione del verbale.
+  \item \textbf{Discussioni}: riporta in modo sintetico ma chiaro i contenuti emersi durante il confronto tra i partecipanti. Devono essere descritte le osservazioni, le problematiche sollevate e le proposte di soluzione valutate durante l’incontro.
+  \item \textbf{Decisioni}: elenca tutte le decisioni approvate dal gruppo, incluse quelle riguardanti modifiche ai documenti, scadenze o variazioni organizzative. Ogni decisione deve essere formulata in modo oggettivo e deve avere un codice identificativo univoco che segue il seguente formato:
+  \[
+\texttt{[VI/VE] [fase a cui appartiene] Y.Z}
+\]
+dove:
+\begin{itemize}
+    \item \textbf{VI/VE}, indica se la decisione fa riferimento ad un verbale interno o esterno, seguendo le convenzioni di scrittura stabilite.
+    \item \textbf{fase}, indica la fase di progetto a cui si rifersice;
+    \item \textbf{Y}, indica il numero del verbale in riferimento a quella revisione;
+    \item \textbf{X} indica il numero della decisione interna a quel documento.
+\end{itemize}
+  \item \textbf{To-do}: presenta, sotto forma di tabella, le attività operative pianificate a seguito della riunione. Ogni attività è identificata da:
+  \begin{itemize}
+      \item una descrizione sintetica;
+      \item Il codice della decisione da cui è stata creata (per ogni decisione ci possono essere 0 o più attività);
+      \item il numero della issue GitHub di quella attività presente nel project.
+  \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Convenzioni di scrittura}
+Le convenzioni di scrittura stabiliscono regole comuni per la redazione di tutti i documenti del progetto.
+\paragraph{Date}
+\begin{itemize}
+    \item Le \textbf{date} devono essere nel formato \textbf{AAAA-MM-GG}. 
+\end{itemize}
+Le ore hanno 2 formati:
+\begin{itemize}
+    \item \textbf{Durata}: Per espriemere una durata usare il formato \textbf{Hh Mm} (es: 2h 15m)
+    \item \textbf{Ora di orologio}: Per indicare che un evento è avvenuto in una specifica ora, usare il formato \textbf{HH:MM} (es: 15:45)
+\end{itemize}
+
+\subsubsection*{Nomi dei file}
+\begin{itemize}
+    \item Tutti i file devono avere nomi in minuscolo, senza spazi, e le parole devono essere separate da un \textbf{underscore (\_)}.
+    \item Il nome di ogni verbale deve iniziare con \texttt{verbale\_} , segue il tipo di verbale \texttt{interno} o \texttt{esterno} e la data in cui si è svolto. Un esempio di nominazione corretta è \texttt{verbale\_interno\_2025-11-05}.
+    \item L'unica eccezione è nel caso in cui usare questo formato generi due verbali con lo stesso nome all'interno della stessa cartella. In tal caso è necessario aggiungere, dopo la data, una breve descrizione del contesto relativo al verbale, sostituendo agli spazi il simbolo \texttt{underscore (\_)}. Ad esempio \texttt{verbale\_2025-10-28\_incontro\_c8}.
+    \item I \texttt{file PDF} mantengono lo stesso nome del file sorgente \texttt{.tex}.
+\end{itemize}
+
+\subsubsection*{Sigle}
+Di seguito sono presenti le sigle usate all interno dei documenti.
+\begin{itemize}
+    \item \textbf{Fasi di progetto}:
+    \begin{itemize}
+        \item \textbf{C}, Candidatura;
+        \item \textbf{RTB}, Requirements and Tecnology Baseline;
+        \item \textbf{PB}, Product Baseline.
+    \end{itemize}
+    \item \textbf{Tipologie di documenti}:
+    \begin{itemize}
+        \item \textbf{AdR}, analisi dei requisiti;
+        \item \textbf{NdP}, norme di progetto;
+        \item \textbf{PdQ}, piano di qualifica;
+        \item \textbf{PdP}, piano di progetto;
+        \item \textbf{G}, glossario;
+        \item \textbf{VI}, verbale interno;
+        \item \textbf{VE}, verbale esterno.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Nomi dei membri}
+\begin{itemize}
+    \item I nomi dei membri devono essere riportati nel formato: \textbf{Nome Cognome} (iniziali maiuscole, nessuna abbreviazione).
+\end{itemize}
+
+\paragraph{Modifiche a documenti}
+Per eseguire delle modifiche alla documentazione di progetto, il membro del gruppo è tenuto a istanziare un nuovo branch di \texttt{feature}. La denominazione del branch di feature deve seguire la nomenclatura presente nella sezione (da aggiungere). \\Ogni modifica a un documento deve essere accompagnata da un aggiornamento del numero di versione appropriato. Il membro del gruppo che si occupa delle modifiche è anche tenuto ad aggiornare lo \textbf{storico dei documenti} con le informazioni richieste.\\ 
+Ogni modifica ad un documento deve essere tracciabile all’interno dello stesso tramite lo \textbf{storico del documento}, riportando:
+  \begin{itemize}
+      \item il numero di versione assegnato;
+      \item la data della conclusione della modifica;
+      \item il nome e cognome del membro del team che l'ha eseguita;
+      \item una descrizione concisa, sisntetica e formale delle modifiche avvenute;
+      \item il nome del verificatore che è tenuto ad eseguire la verifica.
+  \end{itemize}
+
+\paragraph{Conclusione modifiche} 
+Una volta completate le modifiche nel branch di \texttt{feature}, il membro incaricato procede ad aprire una \textbf{pull request\ap{G}} dal proprio branch di feature verso il branch \texttt{develop}. Nella fase di apertura della \textbf{pull request\ap{G}} devono essere compilate le informazioni richieste dal relativo template, specifico per il \textbf{repository\ap{G}} della documentazione. La \textbf{pull request\ap{G}} costituisce la richiesta formale per integrare le modifiche nella versione di sviluppo, permettendo al team di effettuare la revisione del codice e di approvarne l’unione.
+
+\paragraph{Verifica} Il verificatore esamina sia la correttezza formale sia sostanziale del documento.
+    \begin{itemize}
+        \item Se le modifiche risultano corrette, il verificato approva la \textbf{pull request\ap{G}}.
+        \item Se emergono incongruenze o problemi, il verificatore richiede modifiche aggiungendo dei commenti specifici al codice nel messaggio della \textbf{pull request\ap{G}} e aprendo una issue \textbf{GitHub\ap{G}} dedicata.
+    \end{itemize}
+Le modifiche richieste devono essere applicate dall’autore originario della \textbf{pull request\ap{G}}, che procede aggiornando il branch \texttt{develop} fino alla completa risoluzione.
+I verificatori sono tenuti a controllare che i documenti di ciclo di vita del progetto comprendano gli elementi di struttura elencati di seguito nell' ordine in cui si presentano.
+
+\paragraph{Approvazione e pull request} Una volta ottenuta l’approvazione del verificatore, la \textbf{pull request\ap{G}} viene sottoposta al \textbf{responsabile\ap{G}}, che effettua un ultima revisione formale. Solo il \textbf{responsabile\ap{G}} è autorizzato a procedere con il merge della PR nel branch \texttt{develop}. Il merge rappresenta l’integrazione definitiva del documento nella versione stabile del progetto.
+
+\paragraph{Pubblicazione} Con la conclusione del merge, il documento aggiornato diventa parte integrante della \textbf{baseline\ap{G}} di progetto. Il branch \texttt{main} costituisce, infatti, il riferimento ufficiale per la versione stabile e coerente dei documenti.
+
+% ==== PROCESSO DI GESTIONE DELLA CONFIGURAZIONE ====
+\subsection{Processo di gestione della configurazione}
+
+% ==== SEZIONE PROCESSI ORGANIZZATIVI ====
+\section{Processi organizzativi del ciclo di vita}
+
+% ==== SEZIONE GESTIONE DEI PROCESSI ====
+\subsection{Gestione dei processi}
+
+\end{document}
