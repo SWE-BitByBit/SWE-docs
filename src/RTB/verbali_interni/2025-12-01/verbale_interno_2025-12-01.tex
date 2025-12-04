@@ -1,0 +1,240 @@
+% template presente
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,     
+}
+\usepackage{graphicx}
+\graphicspath{{resources/}{../resources/}{../../resources/}{../../../resources/}{../../../../resources/}}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{colortbl}
+\usepackage{hyperref} 
+\usepackage{fancyhdr} 
+\usepackage{titlesec}
+\geometry{margin=2.5cm}
+% ===== Variabile per il titolo del documento =====
+\newcommand{\documenttitle}{Verbale interno Riunione, numero 3 - RTB}
+
+
+\setlength{\parindent}{0pt}
+\setstretch{1.2}
+
+% ===== Stile intestazione =====
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gray}{\documenttitle - BitByBit}}
+\fancyfoot[C]{\thepage}
+
+% ===== Formattazione sezioni =====
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection.}{0.5em}{}
+
+\begin{document}
+
+% ======= HEADER UNIVERSITÀ E GRUPPO CENTRATI VERTICALMENTE =======
+\vspace*{\fill} % --- Spinge verso il basso l'inizio del contenuto
+
+\begin{center}
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{logoUni.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \raggedright
+        {\color{red}\LARGE \textbf{Università degli Studi di Padova}}\\[0.3cm]
+        {\large
+        Laurea: Informatica\\
+        Corso: Ingegneria del Software\\
+        Anno Accademico: 2025/26
+        }
+    \end{minipage}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{logo.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.7\textwidth}
+        \raggedright
+        {\LARGE \textbf{Gruppo 17}}\\[0.3cm]
+        {\large
+        Nome: BitByBit\\
+        Email: swe.bitbybit@gmail.com
+        }
+    \end{minipage}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{center}
+    {\LARGE \textbf{\documenttitle}}
+\end{center}
+
+\vspace*{\fill} % --- Spinge verso l’alto la fine del contenuto, centrando tutto il blocco
+
+\clearpage
+
+% ---------- REDAZIONE E REVISIONE ----------
+\clearpage
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black}
+\begin{tabular}{|c|p{0.11\linewidth}|p{0.21\linewidth}|p{0.23\linewidth}|p{0.21\linewidth}|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
+\hline
+\rowcolor{white}
+0.1.0 & 2025-12-01 & Riccardo Manisi & Redazione del verbale & Marco Sanguin \\
+\hline
+\rowcolor{gray!20}
+ &  &  &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+% ======= INFO GENERALI =======
+\section*{Informazioni Generali}
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tcolorbox}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Redattore:} & Riccardo Manisi \\
+\textbf{Verificatore:} & Marco Sanguin \\
+\textbf{Responsabile:} & Riccardo Manisi \\
+\textbf{Data:} & 01 dicembre 2025 \\
+\textbf{Durata:} & 1h 30m \\
+\textbf{Luogo:} & Discord \\
+\end{tabularx}
+\end{tcolorbox}
+
+\vspace{0.4cm}
+\textbf{Partecipanti:}
+\begin{itemize}
+    \item Manisi Riccardo
+    \item Parolin Dennisx
+    \item Scaggiante Gabriele
+    \item Sanguin Marco
+    \item Visentin Giovanni
+\end{itemize}
+
+\textbf{Assenti:}
+\begin{itemize}
+    \item (nessuno)
+\end{itemize}
+
+\clearpage
+
+\vspace{0.5cm}
+
+\vspace{0.8cm}
+
+% ======= INDICE SU PAGINA DEDICATA =======
+\clearpage
+\tableofcontents
+\thispagestyle{empty} % senza numero di pagina per l'indice
+\clearpage
+
+% ---------- ORDINE DEL GIORNO ----------
+\section{Ordine del Giorno}
+\begin{itemize}
+    \item \textbf{Sprint Retrospective\ap{G}} dello \textbf{Sprint\ap{G}} n°1 del periodo dal 2025-11-19 al 2025-12-03
+    \item \textbf{Sprint planning\ap{G}} per lo \textbf{Sprint\ap{G}} relativo al periodo dal 2025-12-04 al 2025-12-18
+\end{itemize}
+
+% ---------- DISCUSSIONI ----------
+\section{Discussioni}
+\begin{itemize}
+    \item Rispetto allo \textbf{Sprint Retrospective\ap{G}} i membri del gruppo hanno esposto con il coordinamento del Responsabile di progetto le attività svolte durante il presente periodo di \textbf{Sprint\ap{G}}. Sono stati presentati e visualizzati le bozze dei documenti AdR e NdP, implementate rispettivamente dai membri Dennis Parolin e Riccardo Manisi.\\Dalla revisione è emerso che le attività che si erano prefissate non sono state compiute completamente andando a influire sul ciclo di lavoro del gruppo.
+    \item Riguardo allo \textbf{Sprint planning\ap{G}} si è decisa la divisione dei ruoli tra i vari membri del gruppo che hanno esposto una preferenza rigurado ai compiti che preferiscono eseguire, quelli che non hanno esposto preferenze gli saranno assegnate delle attività dal Responsabile in base alla necessità.
+    \item Si è ragionato sulla grandezza delle issue che devono essere prodotte al momento dello \textbf{Sprint planning\ap{G}}, queste possono essere generali e poi nel caso debbano essere scomposte in altre attività il membro del team che ce l'ha in carico dovrà creare delle \textbf{sub-issue\ap{G}}.
+    \item Durante la riunione Riccardo Manisi ha illustrato il procedimento inserito nel Wow per le pull request, che da adesso in poi il gruppo riconosce come metodo ufficiale per eseguire l'attività di controllo della configurazione. 
+\end{itemize}
+Si riporta qui di seguito la spartizione dei ruoli per ogni membro del gruppo stabilita durante le discussioni durante l'incontro:
+\begin{center}
+    \textbf{Amministratore\ap{G}} $\rightarrow$ Ferdinando Fracasso, Riccardo Manisi, Marco Sanguin, Gabriele Scaggiante\\
+    \textbf{Responsabile\ap{G}} $\rightarrow$ Riccardo Manisi, Dennis Parolin\\
+    \textbf{Analista\ap{G}} $\rightarrow$ Ferdinando Fracasso, Riccardo Manisi, Marco Sanguin, Gabriele Scaggiante, Dennis Parolin, Giovanni Visentin\\
+    \textbf{Verificatore\ap{G}} $\rightarrow$ Marco Sanguin, Giovanni Visentin
+\end{center}
+
+
+
+% ---------- DECISIONI ----------
+\section{Decisioni}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black} 
+\begin{tabular}{|p{0.73\textwidth}|c|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Descrizione decisione} & \textbf{Codice decisione} \\
+\hline
+\rowcolor{white}
+Suddivisione dei ruoli per il secondo Sprint & VI RTB 3.1 \\
+\hline
+\rowcolor{gray!20}
+Inizio redazione del documento AdR &  VI RTB 3.2 \\
+\hline
+\rowcolor{white}
+Studio delle metriche per la qualità da inserire nel cruscotto &  VI RTB 3.3\\
+\hline
+\rowcolor{gray!20}
+Bozza per gli scenari da insierire nel documento AdR &  VI RTB 3.4 \\
+\hline
+\rowcolor{white}
+Sistemazione del \textbf{repository\ap{G}} per la visualizzazione corretta dell'ordine dei documenti &  VI RTB 3.5\\
+\hline
+\end{tabular}
+\end{center}
+
+% ---------- TO DO ----------
+\section{To Do}
+Dalle discussioni e decisioni intraprese, sono emerse le seguenti attività:
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black} 
+\begin{tabular}{|p{0.52\textwidth}|c|c|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Task} & \textbf{Codice decisione} & \textbf{N°issue GitHub} \\
+\hline
+\rowcolor{white}
+Inizio redazione del documento AdR & VI RTB 3.2 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/90}{\textbf{\#90}} \\
+\hline
+\rowcolor{gray!20}
+Studio delle metriche di qualità & VE RTB 3.3 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/91}{\textbf{\#91}} \\
+\hline
+\rowcolor{white}
+Scrivere bozza per gli scenari da insierire nel documento AdR & VI RTB 3.4 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/92}{\textbf{\#92}} \\
+\hline
+\rowcolor{gray!20}
+Correzione sito per la visualizzazione dei contenuti & VE RTB 3.5 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/93}{\textbf{\#93}} \\
+\hline
+\rowcolor{white}
+Sistemare cartelle della \textbf{repository\ap{G}} per la corretta visualizzazione & VI RTB 3.5 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/94}{\textbf{\#94}} \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
