@@ -21,9 +21,10 @@
 \usepackage{hyperref} 
 \usepackage{fancyhdr} 
 \usepackage{titlesec}
+\usepackage{float}
 \geometry{margin=2.5cm}
 % ===== Variabile per il titolo del documento =====
-\newcommand{\documenttitle}{Verbale Riunione Numero X}
+\newcommand{\documenttitle}{Verbale Riunione Esterna Numero 2}
 
 
 \setlength{\parindent}{0pt}
@@ -88,19 +89,36 @@
 \vspace*{\fill} % --- Spinge verso l’alto la fine del contenuto, centrando tutto il blocco
 
 \clearpage
+
+% ---------- REDAZIONE E REVISIONE ----------
+\clearpage
+\section{Redazione e revisioni del documento}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2} 
+\arrayrulecolor{black}
+\begin{tabular}{|c|p{0.11\linewidth}|p{0.21\linewidth}|p{0.23\linewidth}|p{0.21\linewidth}|}
+\hline
+\rowcolor{gray!60} 
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
+\hline
+\rowcolor{white}
+0.1.0 & 2025-11-26 & Dennis Parolin & Scrittura del documento & Marco Sanguin \\
+\hline
+\end{tabular}
+\end{center}
+
 % ======= INFO GENERALI =======
 \section*{Informazioni Generali}
 \renewcommand{\arraystretch}{1.3}
 
 \begin{tcolorbox}
 \begin{tabularx}{\textwidth}{@{}l X@{}}
-\textbf{Redattore:} & XXXX \\
-\textbf{Verificatore:} & XXXX \\
-\textbf{Responsabile:} & XXXX \\
-\textbf{Amministratore:} & XXXX \\
-\textbf{Data:} & 23 ottobre 2025 \\
-\textbf{Durata:} & 1h 45m \\
-\textbf{Luogo:} & Padova, Aula 2 \\
+\textbf{Redattore:} & Dennis Parolin \\
+\textbf{Data:} & 25 novembre 2025 \\
+\textbf{Durata:} & 4h \\
+\textbf{Luogo:} & Padova (Sede Miriade), Via Giacinto Longhin 53 \\
 \end{tabularx}
 \end{tcolorbox}
 
@@ -112,6 +130,14 @@
     \item Scaggiante Gabriele
     \item Sanguin Marco
     \item Visentin Giovanni
+	\item Fracasso Ferdinando
+\end{itemize}
+
+\textbf{Miriade:}
+\begin{itemize}
+    \item Emanuele Righetto
+    \item Annalisa Egidi
+    \item Anna Baldo
 \end{itemize}
 
 \textbf{Assenti:}
@@ -134,12 +160,114 @@
 % ---------- ORDINE DEL GIORNO ----------
 \section{Ordine del Giorno}
 \begin{itemize}
-    \item %modifica
+    \item Scelta delle funzionalità da implementare
+    \item Creazione di un mockup base per l'applicazione
 \end{itemize}
 
-% ---------- DISCUSSIONI ----------
+% ---------- DISCUSSIONI FORMALIZZATE ----------
 \section{Discussioni}
-%modifica
+Durante la sessione, si è stabilito di adottare la metodologia del Design Sprint al fine di identificare con precisione il target di utenza finale e definire le funzionalità core da sviluppare. Successivamente, l'attività si è concentrata sulla realizzazione di mockup preliminari, volti a delineare l'identità visiva e l'architettura dell'applicazione.
+
+\subsection{Identificazione del Target di Utenza}
+La fase iniziale del meeting è stata dedicata all'analisi dei potenziali fruitori dell'applicazione. Le categorie di utenti individuate sono state le seguenti:
+
+\begin{itemize}
+    \item Donne nella fascia d'età compresa tra i 14 e i 30 anni (con la specifica che i casi riguardanti minori di 18 anni necessitano di trattazione separata);
+    \item Comunità specifiche (es. LGBTQ+);
+    \item Cerchia amicale (prevalentemente under 30);
+    \item Professionisti del settore (es. psicologi);
+    \item Utenti esterni (interessati a reperire informazioni sul tema);
+    \item Rete di supporto (soggetti selezionati dall'utente come contatti fidati).
+\end{itemize}
+
+A seguito di un confronto interno, si è deliberato di focalizzare il target primario sulle donne di età compresa tra i 18 e i 30 anni. Tuttavia, si è deciso di includere anche utenti esterni interessati all'argomento, prevedendo una sezione informativa accessibile sia a questi ultimi che all'utente target principale.
+
+\subsection{Analisi del Contesto d'Uso}
+Il gruppo di lavoro ha successivamente analizzato il contesto in cui l'utente potrebbe trovarsi durante l'utilizzo dell'applicazione.
+È emerso che l'applicativo si configura principalmente come strumento di prevenzione volto a mitigare il degenerare di situazioni a rischio. Si presuppone, infatti, che in casi di pericolo imminente la vittima contatti direttamente le autorità competenti (es. 118), bypassando l'applicazione. Pertanto, lo scenario ideale prevede che l'utente disponga di tempo sufficiente per interagire con l'app. Nonostante ciò, verrà garantito un supporto anche in situazioni di maggiore stress.
+Nello specifico, l'installazione e l'utilizzo dell'applicazione sono previsti quando l'utente:
+
+\begin{itemize}
+    \item Nutre dubbi sull'argomento e desidera informarsi disponendo del tempo necessario;
+    \item Nutre dubbi sulla propria situazione personale, desiderando valutare l'eventuale presenza di pericoli, in un contesto di calma apparente;
+    \item Si trova in una situazione di difficoltà (es. potenziale violenza domestica) caratterizzata da stress; in tal caso, l'obiettivo è fornire un aiuto rapido e discreto.
+\end{itemize}
+
+\subsection{Definizione delle Funzionalità}
+Una volta delineato il contesto d'uso, si è proceduto all'identificazione delle funzionalità più idonee per il target di riferimento. È stato stabilito come principio cardine che le azioni critiche o gli allarmi (come la chiamata alle forze dell'ordine) non debbano essere gestiti autonomamente dall'Intelligenza Artificiale, bensì richiedano sempre la conferma esplicita dell'utente. Le funzionalità principali selezionate sono:
+
+\begin{itemize}
+    \item Welcome page e walkthrough introduttivo;
+    \item Pagina impostazioni;
+    \item Login e gestione Account;
+    \item Detective delle relazioni;
+    \item Lo specchio intelligente;
+    \item La guida al coraggio;
+    \item Guardiano silenzioso;
+    \item Diario criptato.
+\end{itemize}
+
+\subsubsection{Welcome Page e Walkthrough}
+L'esperienza utente avrà inizio con una schermata di benvenuto volta a comprendere la finalità dell'installazione. Tale interfaccia presenterà due opzioni: "Per me" o "Per altri". Questa distinzione è fondamentale per fornire un contesto iniziale al Large Language Model (LLM) e preconfigurare determinati parametri. Inoltre, tale struttura permetterà in futuro l'implementazione di funzionalità differenziate in base al beneficiario del servizio.
+
+Successivamente, sarà proposto un walkthrough illustrativo delle funzionalità disponibili. È prevista la presenza di un comando per saltare tale guida, permettendo l'accesso diretto alle funzionalità dell'app.
+
+\subsubsection{Account e Impostazioni}
+È prevista l'implementazione di una sezione per la gestione dell'account. L'utente avrà la facoltà di fornire un indirizzo e-mail personale, utilizzabile per l'invio di notifiche qualora si rilevi un periodo prolungato di inattività, fungendo da meccanismo di controllo (dead man's switch) per verificare lo stato di sicurezza dell'utente o l'abbandono volontario dell'app.
+
+Un'ulteriore sezione sarà dedicata alle preferenze, incluse la gestione della rete di contatti fidati, la personalizzazione delle notifiche e la scelta dell'icona dell'app (funzionalità di "camuffamento" per proteggere la privacy in caso di ispezione del dispositivo da parte di terzi) e delle informazioni condivisibili (es. posizione geografica). La configurazione della rete di supporto è cruciale: l'utente potrà inserire e-mail o numeri di telefono di persone ritenute \textbf{fidate}, dati essenziali per il funzionamento del \textbf{Guardiano Silenzioso}. Tale funzionalità è progettata per essere scalabile, prevedendo in futuro l'invio di diverse tipologie di notifiche.
+
+\subsubsection{Detective delle Relazioni e Lo Specchio Intelligente}
+L'interfaccia includerà una sezione dedicata all'interazione testuale con l'Intelligenza Artificiale, concepita per chiarire dubbi e fornire supporto. Questa schermata implementerà due distinte funzionalità: \textbf{Detective delle relazioni} e \textbf{Lo specchio intelligente}.
+La prima ha l'obiettivo di analizzare comportamenti o narrazioni dell'utente per identificare la situazione attuale e riconoscere pattern di pericolo meritevoli di attenzione. La seconda è orientata all'autoconsapevolezza, offrendo uno spazio privato per l'analisi dei propri pensieri.
+La selezione del prompt più adeguato tra i due sarà gestita automaticamente dall'app previa analisi del messaggio utente, mantenendo comunque la possibilità di modifica manuale. È prevista inoltre una sezione per l'archiviazione delle chat, consentendone la consultazione e la prosecuzione futura.
+
+\subsubsection{La Guida al Coraggio}
+La sezione denominata \textbf{La guida al coraggio} fungerà da hub informativo, offrendo accesso chiaro a risorse essenziali. I contenuti includeranno:
+\begin{itemize}
+    \item Link a siti web di riferimento;
+    \item Link a materiale video educativo;
+    \item Collegamenti a forum di discussione esistenti;
+    \item Definizioni normative e informazioni sulla "violenza di genere";
+    \item Informazioni legali (diritti, azioni permesse, procedure di denuncia, ecc.).
+\end{itemize}
+Sarà inoltre integrata una mappa per la visualizzazione dei "luoghi sicuri", con indicazioni sui percorsi per raggiungerli basate sulla geolocalizzazione dell'utente (tramite integrazione con Google Maps).
+
+\subsubsection{Guardiano Silenzioso}
+Tale funzionalità è concepita per l'invio tempestivo di comunicazioni di emergenza (e-mail o SMS) ai contatti della rete di supporto in caso di pericolo o necessità. L'attivazione di tali comunicazioni non sarà demandata all'IA, ma sarà gestita direttamente dall'utente tramite un comando "\textbf{SOS}" chiaramente visibile e di rapido accesso.
+
+Qualora il dispositivo si trovi in condizioni di scarsa o nulla connettività internet, l'applicazione prevede una modalità di sicurezza ausiliaria. In tale scenario, previo comando specifico dell'utente, verrà attivato un allarme acustico volto ad attirare l'attenzione dei presenti e dissuadere eventuali aggressori.
+
+\subsubsection{Diario Criptato}
+Il \textbf{Diario Criptato} costituirà uno spazio sicuro per l'annotazione di eventi, pensieri e l'archiviazione di file multimediali (foto e audio). L'accesso a tale sezione sarà protetto da password o autenticazione biometrica, e l'interfaccia sarà progettata per essere discreta.
+
+A tutela della sicurezza dell'utente in situazioni di costrizione, è previsto un meccanismo di accesso differenziato: qualora l'utente sia forzato a mostrare il contenuto del diario, l'inserimento di una password errata darà accesso a un diario fittizio. Questa versione conterrà elementi coerenti e sensati, ma privi di qualsiasi informazione sensibile. L'inserimento della password corretta, invece, garantirà il normale accesso al diario reale e ai dati personali archiviati.
+
+In una prima fase, il diario non sarà interconnesso con l'IA.
+Tuttavia, l'architettura è predisposta per future estensioni, eventualmente sviluppate da team specializzati o tramite microservizi. Possibili evoluzioni includono l'analisi dei contenuti del diario da parte dell'IA per arricchire il contesto delle conversazioni, o viceversa, l'esportazione automatica delle chat nel diario. Si ipotizza inoltre l'implementazione di widget per smartphone o smartwatch per l'inserimento rapido di note vocali o fotografiche.
+
+\subsection{Sintesi Grafica}
+Quanto discusso è stato schematizzato su supporto cartaceo durante il meeting. Partendo da un foglio bianco, sono stati aggiunti progressivamente post-it rappresentanti le categorie di utenti, i contesti d'uso e le funzionalità. Tale elaborato è visibile in Figura \ref{fig:cartellone_organizzativo}.
+
+\begin{figure}[H]
+    \centering
+    % L'opzione angle=90 ruota l'immagine in senso antiorario
+    \includegraphics[angle=90, width=0.7\textwidth]{tabellone.jpg}
+    \caption{Il cartellone organizzativo prodotto durante il meeting.}
+    \label{fig:cartellone_organizzativo}
+\end{figure}
+
+\subsection{Prototipo UI (Mockup)}
+Definite le specifiche funzionali, si è proceduto alla valutazione dell'Interfaccia Utente (UI). Ciascun membro del team ha prodotto una bozza grafica su carta, successivamente presentata al gruppo, come illustrato in Figura \ref{fig:mockup}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{vise_presenta.jpg}
+    \caption{Un membro del gruppo espone la sua idea di UI agli altri membri}
+    \label{fig:mockup}
+\end{figure}
+
+Non è stata ancora deliberata una veste grafica definitiva; tuttavia, l'attenzione si è focalizzata su specifici stili che hanno riscosso consenso unanime per estetica, utilità ed ergonomia. Sarà necessaria un'ulteriore fase di elaborazione per sintetizzare le diverse proposte e ottimizzare l'interfaccia finale.
 
 % ---------- DECISIONI ----------
 \section{Decisioni}
@@ -153,13 +281,10 @@
 \textbf{Descrizione decisione} & \textbf{Codice decisione} \\
 \hline
 \rowcolor{white}
-Inserire descrizione & VI C 1.1 \\
+Definizione delle funzionalità operative da implementare & VE RTB 2.1 \\
 \hline
 \rowcolor{gray!20}
-Inserire descrizione &  VI C 1.2 \\
-\hline
-\rowcolor{white}
-Inserire descrizione &  VI C 1.3\\
+Definizione delle linee guida per l'Interfaccia Utente (UI) &  VE RTB 2.2 \\
 \hline
 \end{tabular}
 \end{center}
@@ -178,43 +303,25 @@ Dalle discussioni e decisioni intraprese, sono emerse le seguenti attività:
 \textbf{Task} & \textbf{Codice decisione} & \textbf{N°issue GitHub} \\
 \hline
 \rowcolor{white}
-Esempio Task 1 & VI C 1.1 & \href{https://github.com/<repo>/issues/1}{\textbf{issue}} \\
+Analisi tecnica preliminare dei servizi AWS per l'individuazione delle risorse idonee all'implementazione delle funzionalità & VE RTB 2.1 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/85}{\textbf{\#85}} \\
 \hline
 \rowcolor{gray!20}
-Esempio Task 2 & VI C 1.2 & \href{https://github.com/<repo>/issues/2}{\textbf{issue}} \\
-\hline
-\rowcolor{white}
-Esempio Task 3 & VI C 1.3 & \href{https://github.com/<repo>/issues/3}{\textbf{issue}} \\
+Scelta e finalizzazione del design dell'Interfaccia Utente (UI) per il PoC & VE RTB 2.2 & \href{https://github.com/SWE-BitByBit/SWE-docs/issues/86}{\textbf{\#86}} \\
 \hline
 \end{tabular}
 \end{center}
 
-% ---------- REDAZIONE E REVISIONE ----------
-\clearpage
-\section{Redazione e revisioni del documento}
+\textbf{Nota Metodologica:} Si precisa che l'attuale fase progettuale è focalizzata sull'analisi dei requisiti e sullo studio di fattibilità tecnologica. L'effettiva fase di sviluppo software e programmazione sarà avviata esclusivamente a seguito del consolidamento delle scelte architetturali e dello stack tecnologico.
 
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.2} 
-\arrayrulecolor{black}
-\begin{tabular}{|c|p{0.11\linewidth}|p{0.21\linewidth}|p{0.23\linewidth}|p{0.21\linewidth}|}
-\hline
-\rowcolor{gray!60} 
-\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Descrizione} & \textbf{Verificatore} \\
-\hline
-\rowcolor{white}
- &  &  &  &  \\
-\hline
-\rowcolor{gray!20}
- &  &  &  & \\
-\hline
-\rowcolor{white}
- &  &  &  & \\
-\hline
-\rowcolor{gray!20}
- &  &  &  &  \\
-\hline
-\end{tabular}
-\end{center}
+	% ---------- FIRMA AZIENDALE ----------
+\vspace*{\fill} % Spinge la firma in fondo alla pagina
+\noindent
+\begin{minipage}{0.60\textwidth}
+    {\small
+    \textbf{Firma aziendale:}\\[0.3cm]
+    \textit{(Spazio riservato all’azienda per apporre firma o timbro)}\\[0.8cm]
+    \fbox{\rule{0pt}{2.5cm}\rule{5cm}{0pt}} % rettangolo segnaposto firma
+    }
+\end{minipage}
 
 \end{document}
